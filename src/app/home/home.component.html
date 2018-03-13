@@ -1,0 +1,23 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Add Todo</p>
+  </div>
+  <div class="col">
+    <p>Todo List ({{ todoCount }})</p>
+  </div>
+</div>
+
+<div class="container color-light" [@todos]="todos.length">
+  <div class="col">
+    <p class="sm">Add Todo</p>
+    <form>
+      <input type="text" class="txt" name="item" placeholder="Enter detail" [(ngModel)]="todoText">
+      <input type="submit" class="btn" [value]="btnText" (click)="addToDo()">
+    </form>
+  </div>
+  <div class="col">
+    <p class="list-container" *ngFor="let todo of todos;let i=index" (click)="removeTodo(i)">
+      {{ todo }}
+    </p>
+  </div>
+</div>
